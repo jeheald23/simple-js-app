@@ -14,7 +14,7 @@ let pokemonList = [{
     type: ['fairy', 'normal']
 }];
 
-let bigText = " -- Wow, that's a big one!";
+const bigText = " -- Wow, that's a big one!";
 
 for(i=0; i<pokemonList.length; i++){
     if(pokemonList[i].height >= 1.0){
