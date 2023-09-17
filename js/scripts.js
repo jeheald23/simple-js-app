@@ -14,12 +14,6 @@ let pokemonList = [{
     type: ['fairy', 'normal']
 }];
 
-const bigText = " -- Wow, that's a big one!";
-
-for(i=0; i<pokemonList.length; i++){
-    if(pokemonList[i].height >= 1.0){
-        document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height}) ${bigText} <br />`);
-    } else {
-        document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height}) <br />`);
-    } 
-}
+pokemonList.forEach(function(item){
+    document.write("<p>" + "Name: " + item.name + " Height: " + item.height + "m" + " Type: " + item.type);
+});
