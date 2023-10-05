@@ -72,12 +72,12 @@ let pokemonRepository = (function (){
   
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function(){
-      console.log(item.name, item.height)
+      showModal(item.name, item.height, item.imageUrl)
     });
 
     let modalContainer = document.querySelector('#modal-container');
   
-    function showModal(title, text, image) {
+    function showModal(title, text, img) {
      modalContainer.innerHTML = '';
      let modal = document.createElement('div');
      modal.classList.add('modal');
@@ -89,10 +89,15 @@ let pokemonRepository = (function (){
     
      let titleElement = document.createElement('h1');
       titleElement.innerText = title;
-    let contentElement = document.createElement('p');
+    
+      let contentElement = document.createElement('p');
       contentElement.innerText = text;
-    let imageElement = document.createElement('img');
-      titleElement.innterText = image;
+   
+      let imageElement = document.createElement("img");
+    imageElement.setAttribute("src", img);
+    imageElement.setAttribute("width", "304");
+    imageElement.setAttribute("height", "228");
+    imageElement.setAttribute("alt", "pokemon");
     
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
@@ -120,8 +125,8 @@ let pokemonRepository = (function (){
       }
     });
     
+    showModal(item);
     document.querySelector('#show-modal').addEventListener('click', () => {
-      showModal('Modal title', 'This is the modal content!');
     });
    }
   
