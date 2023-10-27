@@ -126,9 +126,8 @@ let pokemonRepository = (function (){
     });
     
     showModal(item);
-    document.querySelector('#show-modal').addEventListener('click', () => {
-    });
-   }
+
+}
   
   return {
     add: add,
