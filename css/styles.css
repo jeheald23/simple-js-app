@@ -1,5 +1,5 @@
-.button-class {
-    background-color: white; /* Green */
+*.button-class {
+    background-color: white; 
     border: blue solid;
     color: black;
     padding: 15px 32px;
@@ -10,7 +10,7 @@
     margin: 10px;
   }
 
-  #modal-container {
+  /*#modal-container {
     position: fixed;
     padding: 20px;
     box-sizing: border-box;
@@ -21,13 +21,13 @@
     background: rgba(0, 0, 0, 0.5);
     
     /* to show it above other content */
-    z-index: 999; 
+    /*z-index: 999; 
     
     /* to allow scrolling if the screen is not high enough*/
-    overflow: auto; 
+    /*overflow: auto; 
     
     /* this is used to center the modal */
-    display: grid;
+  /*  display: grid;
     text-align: center;
   }
   
@@ -65,5 +65,5 @@
   
   #modal-container.is-visible {
     /* CSS for modal container - add your own desired CSS styles here */
-    display: block;
-  }
+ /*   display: block;
+  } */
