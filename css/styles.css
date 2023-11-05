@@ -1,5 +1,6 @@
 *.button-class {
     display: block;
+    text-transform: capitalize;
   }
 
   .center {
@@ -9,5 +10,15 @@
     width: 50%;
   }
 
- 
+ .pokemon-list {
+  text-transform: capitalize;
+ }
 
+
+.modal-title {
+  text-transform: capitalize;
+}
+
+.modal-body {
+  text-transform: capitalize;
+}
