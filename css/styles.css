@@ -1,16 +1,16 @@
-*.button-class {
+*.btn {
     display: block;
     text-transform: capitalize;
   }
 
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   }
-
- .pokemon-list {
+  
+.pokemon-list {
   text-transform: capitalize;
  }
 
@@ -22,3 +22,4 @@
 .modal-body {
   text-transform: capitalize;
 }
+
