@@ -1,9 +1,8 @@
-
 //IIFE to keep this code from being accessed externally
 
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=5';
   let searchInput = document.querySelector("#searchIn");
 
 
@@ -28,16 +27,17 @@ let pokemonRepository = (function () {
   //creates pokemon buttons
 
   function addListItem(pokemon) {
+    debugger
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
     listItem.innerText = pokemon.name;
     let button = document.createElement('button');
     button.className = ('btn btn-info');
-    button.setAttribulte = ('data-target','#modal')
-    button.setAttribute=('data-toggle', 'modal')
+    button.setAttribulte = ('data-target', '#modal')
+    button.setAttribute = ('data-toggle', 'modal')
     button.innerText = ('get information');
-  
+
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
 
@@ -72,11 +72,14 @@ let pokemonRepository = (function () {
       item.weight = details.weight;
       item.types = details.types;
       item.abilities = details.abilities;
-  } catch (e) {
+      return item
+    } catch (e) {
       console.error(e);
     };
-  
+
   }
+
+
 
 
   function showDetails(item) {
@@ -90,9 +93,9 @@ let pokemonRepository = (function () {
 
     let nameElement = $("<h1>" + item.name + "</h1>");
     let imageElement = $('<img-class="modal-img" style="width:50%">');
-    imageElement.attr("<src>", item.imageUrl);
-    let heightElement = $("<p>" + "height: " + item.height + "</p>");
-    let weightElement = $("<p>" + "weight: " + item.weight + "</p>");
+    imageElement.attr("src", item.imageUrl);
+    let heightElement = $("<p>" + "height: " + item.height + "m </p>");
+    let weightElement = $("<p>" + "weight: " + item.weight + "g </p>");
     let typesElement = $("<p>" + "types: " + item.types + "</p>");
     let abilitiesElement = $("<p>" + "abilities: " + item.abilities + "</p>")
 
@@ -102,7 +105,7 @@ let pokemonRepository = (function () {
     modalBody.append(weightElement);
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
-   $('#exampleModal').modal("toggle")
+    $('#exampleModal').modal("toggle")
   };
 
   return {
@@ -115,9 +118,11 @@ let pokemonRepository = (function () {
 
 })();
 
-pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function (loadDetails) {
-      pokemonRepository.addListItem(loadDetails); {
-      };
-    });
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function(poke){
+      pokemonRepository.addListItem(poke)
+    })
   });
+});
+
