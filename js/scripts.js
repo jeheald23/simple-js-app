@@ -79,9 +79,6 @@ let pokemonRepository = (function () {
 
   }
 
-
-
-
   function showDetails(item) {
     console.table(item)
     let modalBody = $(".modal-body");
@@ -95,9 +92,19 @@ let pokemonRepository = (function () {
     let imageElement = $('<img-class="modal-img" style="width:50%">');
     imageElement.attr("src", item.imageUrl);
     let heightElement = $("<p>" + "height: " + item.height + "m </p>");
-    let weightElement = $("<p>" + "weight: " + item.weight + "g </p>");
-    let typesElement = $("<p>" + "types: " + item.types + "</p>");
-    let abilitiesElement = $("<p>" + "abilities: " + item.abilities + "</p>")
+    let weightElement = $("<p>" + "weight: " + item.weight + "kg </p>");
+
+    //Types
+    let typesElement = $("<p>" + "types: " + "</p>");
+    item.types.forEach(function (type) {
+      typesElement.append(type.type.name + " ");
+    });
+  
+    // Abilities
+    let abilitiesElement = $("<p>" + "abilities: " + "</p>");
+    item.abilities.forEach(function (ability) {
+      abilitiesElement.append(ability.ability.name + " ");
+    });
 
     modalTitle.append(nameElement);
     modalBody.append(imageElement);
