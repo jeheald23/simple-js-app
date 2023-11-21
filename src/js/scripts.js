@@ -98,7 +98,7 @@ let pokemonRepository = (function () {
     let heightElement = $("<p>" + "height: " + item.height + "m </p>");
     
     //Types
-    let typesElement = $("<p>" + "types: " + item.types.map(type => type.type.name).join(", ") + "</p>");
+    let typesElement = $("<p>" + "type: " + item.types.map(type => type.type.name).join(", ") + "</p>");
   
     // Abilities
     let abilitiesElement = $("<p>" + "abilities: " + item.abilities.map(ability => ability.ability.name).join(", ") + "</p>");
