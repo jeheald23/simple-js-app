@@ -74,6 +74,7 @@ let pokemonRepository = (function () {
       const details = await response.json();
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
+      item.weight = details.weight;
       item.types = details.types;
       item.abilities = details.abilities;
       return item
@@ -95,7 +96,8 @@ let pokemonRepository = (function () {
     let nameElement = $("<h1>" + item.name + "</h1>");
     let imageElement = $('<img class="modal-img" style="width:50%">');
     imageElement.attr("src", item.imageUrl);
-    let heightElement = $("<p>" + "height: " + item.height + "m </p>");
+    let heightElement = $("<p>" + "height: " + item.height + "</p>");
+    let weightElement = $("<p>" + "weight: " + item.weight + "</p>");
     
     //Types
     let typesElement = $("<p>" + "type: " + item.types.map(type => type.type.name).join(", ") + "</p>");
@@ -107,7 +109,7 @@ let pokemonRepository = (function () {
     modalTitle.append(nameElement);
     modalBody.append(imageElement);
     modalBody.append(heightElement);
-   
+    modalBody.append(weightElement);
     modalBody.append(typesElement);
     modalBody.append(abilitiesElement);
     $('#exampleModal').modal("toggle")
