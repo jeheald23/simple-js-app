@@ -1,4 +1,5 @@
-# simple-js-app
+# Pokedex App
+
 Web application utilizing HTML, CSS, JavaScript, and Bootstrap elements (modals, buttons, formatting) that loads data from an external API
 
 Click on the buttons to open modals
