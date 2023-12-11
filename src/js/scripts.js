@@ -1,3 +1,15 @@
+
+const $ = require("jquery");
+const module = require("module");
+
+// Add the missing import statement for 'require'
+const require = require;
+
+module.exports = {
+    parserOptions: {
+        sourceType: "module",
+    },
+};
 let pokemonRepository = (function () {
   let t = [];
   function e(e) {
@@ -32,30 +44,32 @@ let pokemonRepository = (function () {
               a.appendChild(o),
               i.appendChild(a),
               n.appendChild(i),
-              a.addEventListener("click", function (t) {
+              a.addEventListener("click", function () {
                   var n;
                   let i, a, o, l, p, r, s, d;
                   (n = e),
                       console.table(n),
-                      (i = $(".modal-body")),
+                    // ...
+
+                    (i = $(".modal-body")),
                       (a = $(".modal-title")),
                       $(".modal-header"),
                       a.empty(),
-                      i.empty(),
-                      (o = $("<h1>" + n.name + "</h1>")),
-                      (l = $('<img class="modal-img" style="width:50%">')),
-                      l.attr("src", n.imageUrl),
-                      (p = $("<p>height: " + n.height + "</p>")),
-                      (r = $("<p>weight: " + n.weight + "</p>")),
-                      (s = $("<p>type: " + n.types.map((t) => t.type.name).join(", ") + "</p>")),
-                      (d = $("<p>abilities: " + n.abilities.map((t) => t.ability.name).join(", ") + "</p>")),
-                      a.append(o),
-                      i.append(l),
-                      i.append(p),
-                      i.append(r),
-                      i.append(s),
-                      i.append(d),
-                      $("#exampleModal").modal("toggle");
+                                          i.empty(),
+                                          (o = $("<h1>" + n.name + "</h1>")),
+                                          (l = $("<img class=\"modal-img\" style=\"width:50%\">")),
+                                          l.attr("src", n.imageUrl),
+                                          (p = $("<p>height: " + n.height + "</p>")),
+                                          (r = $("<p>weight: " + n.weight + "</p>")),
+                                          (s = $("<p>type: " + n.types.map((t) => t.type.name).join(", ") + "</p>")),
+                                          (d = $("<p>abilities: " + n.abilities.map((t) => t.ability.name).join(", ") + "</p>")),
+                                          a.append(o),
+                                          i.append(l),
+                                          i.append(p),
+                                          i.append(r),
+                                          i.append(s),
+                                          i.append(d),
+                                          $("#exampleModal").modal("toggle");
               });
       },
       loadList: function t() {
